@@ -115,7 +115,8 @@ document.addEventListener('DOMContentLoaded', event => {
             }
 
             // OJO: Asegúrate de que el puerto aquí coincida con el que usas en app.py (5500)
-            fetch('http://127.0.0.1:5500/api/analizar', { 
+// Al quitar el "http", JS automáticamente buscará la API en el servidor donde esté alojada la página
+            fetch('/api/analizar', { 
                 method: 'POST', 
                 body: formData 
             })
