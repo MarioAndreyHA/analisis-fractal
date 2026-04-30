@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Plataforma de Análisis de Dimensión Fractal en Imágenes" />
+        <meta name="author" content="Mario Abrego" />
+        <title>Análisis de la Dimensión Fractal</title>
+        <link rel="icon" type="image/x-icon" href="img/logo.png" />
+
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <link href="styles.css" rel="stylesheet" />
+        
+        <style>
+            .hero-gradient {
+                background: linear-gradient(135deg, #111827 0%, #1e1b4b 100%);
+            }
+            .feature-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 4rem;
+                height: 4rem;
+                border-radius: 12px;
+                background-color: rgba(13, 110, 253, 0.1);
+                color: #0d6efd;
+                transition: all 0.3s ease;
+            }
+            .card-hover {
+                border: 1px solid rgba(0,0,0,0.05);
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 1rem 3rem rgba(0,0,0,.1)!important;
+                border-color: rgba(13, 110, 253, 0.2);
+            }
+            .card-hover:hover .feature-icon {
+                background-color: #0d6efd;
+                color: white !important;
+            }
+            .text-justify {
+                text-align: justify;
+            }
+        </style>
+    </head>
+    <body id="page-top" class="bg-light">
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+            <div class="container px-5">
+                            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-chart-line me-2"></i>Análisis Fractal</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="#scroll">Información</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#metodos">Algoritmos</a></li>
+                        <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                            <a class="btn btn-primary rounded-pill px-4" href="entrar.html">Ir al Analizador</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-gradient text-center text-white pt-5 mt-5">
+            <div class="container px-5 py-5 my-5">
+                <h1 class="display-3 fw-bolder mb-3">Dimensión Fractal en Imágenes</h1>
+                <p class="lead fw-normal text-white-50 mb-5 max-w-lg mx-auto">Plataforma computacional para el análisis y cálculo de autosimilitud de complejidad estructural en imágenes digitales.</p>
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                    <a class="btn btn-primary btn-lg px-4 rounded-pill" href="entrar.html">Iniciar Análisis</a>
+                    <a class="btn btn-outline-light btn-lg px-4 rounded-pill" href="saber-mas.html">Fundamento Teórico</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="scroll" class="py-5 bg-white">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-3 shadow-lg" src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop" alt="Geometría abstracta y complejidad topológica" />
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="display-5 fw-bold mb-4">La Dimensión Fractal</h2>
+                        <p class="lead text-muted mb-4 text-justify">En la geometría fractal, la dimensión es un índice analítico que cuantifica la complejidad geométrica y el grado de autosimilitud de un objeto espacial.</p>
+                        <p class="text-muted text-justify">A diferencia de la geometría euclidiana clásica, donde las dimensiones se limitan a números enteros (1D, 2D, 3D), la dimensión fractal (*D*) adopta valores fraccionarios. Este valor permite describir matemáticamente estructuras irregulares, determinando cómo el nivel de detalle de un patrón cambia o se preserva en función de la escala en la que es observado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="metodos" class="py-5 bg-light">
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold">Algoritmos de Procesamiento</h2>
+                    <p class="lead text-muted">Implementación de métodos estandarizados para la estimación de la dimensión fractal.</p>
+                </div>
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="card h-100 shadow-sm border-0 card-hover">
+                            <div class="card-body p-5">
+                                <div class="feature-icon mb-4">
+                                    <i class="fas fa-border-all fa-2x"></i>
+                                </div>
+                                <h3 class="h4 fw-bold mb-3">Box-Counting</h3>
+                                <p class="text-muted mb-0 text-justify">Método para el cálculo de la dimensión de capacidad. Binariza la imagen de entrada y aplica una superposición iterativa de cuadrículas decrecientes, evaluando la densidad espacial a través de regresión logarítmica.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="card h-100 shadow-sm border-0 card-hover">
+                            <div class="card-body p-5">
+                                <div class="feature-icon mb-4" style="color: #198754; background-color: rgba(25, 135, 84, 0.1);">
+                                    <i class="fas fa-cubes fa-2x"></i>
+                                </div>
+                                <h3 class="h4 fw-bold mb-3">Box-Counting Fraccionario</h3>
+                                <p class="text-muted mb-0 text-justify">Variante topológica para imágenes en escala de grises. Proyecta la intensidad de los píxeles como una superficie tridimensional para calcular la rugosidad basándose en la varianza local de altitud.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card h-100 shadow-sm border-0 card-hover">
+                            <div class="card-body p-5">
+                                <div class="feature-icon mb-4" style="color: #dc3545; background-color: rgba(220, 53, 69, 0.1);">
+                                    <i class="fas fa-wave-square fa-2x"></i>
+                                </div>
+                                <h3 class="h4 fw-bold mb-3">Análisis Wavelets</h3>
+                                <p class="text-muted mb-0 text-justify">Utiliza la Transformada Wavelet Discreta (DWT) bidimensional. Analiza el comportamiento de la varianza en las sub-bandas de alta frecuencia a través de múltiples niveles para estimar el Exponente de Hurst (*H*).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 bg-white">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2 mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-3 shadow-lg" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Pipeline de procesamiento de datos" />
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <h2 class="display-6 fw-bold mb-4">Procesamiento</h2>
+                        <p class="text-muted mb-4 text-justify">La arquitectura del sistema procesa la matriz de la imagen a través de las siguientes etapas computacionales:</p>
+                        
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0"><i class="fas fa-microchip text-primary fa-2x mt-1"></i></div>
+                            <div class="ms-3">
+                                <h4 class="h5 fw-bold">1. Preprocesamiento de Matriz</h4>
+                                <p class="text-muted text-justify">Conversión del espacio de color a luminancia (escala de grises) o binarización por umbral, preparando los datos para el análisis topológico puro.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div class="flex-shrink-0"><i class="fas fa-chart-scatter text-primary fa-2x mt-1"></i></div>
+                            <div class="ms-3">
+                                <h4 class="h5 fw-bold">2. Regresión y Coeficiente R²</h4>
+                                <p class="text-muted text-justify">Extracción de datos a múltiples escalas para generar un modelo de regresión lineal en un plano logarítmico, determinando la pendiente matemática (*D*).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-4 bg-dark text-center">
+            <div class="container px-5"><p class="m-0 text-white-50 small">Copyright &copy; Mario Abrego 2026</p></div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

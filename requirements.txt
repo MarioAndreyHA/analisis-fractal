@@ -1,0 +1,7 @@
+Flask
+Pillow
+numpy
+scikit-learn
+PyWavelets
+flask-cors
+gunicorn

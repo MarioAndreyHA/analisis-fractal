@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Herramienta para el cálculo de la dimensión fractal" />
+    <meta name="author" content="Mario Abrego" />
+    <title>Herramienta de Cálculo - Dimensión Fractal</title>
+    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet" />
+
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+        }
+        .icon-blue { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; }
+        .icon-green { background-color: rgba(25, 135, 84, 0.1); color: #198754; }
+        .icon-red { background-color: rgba(220, 53, 69, 0.1); color: #dc3545; }
+        
+        .card-hover {
+            cursor: pointer; 
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        }
+
+        .bg-blue { background-color: #0d6efd !important; color: white !important; }
+        .btn-blue { background-color: #0d6efd !important; border-color: #0d6efd !important; color: white !important; }
+        .btn-blue:hover { background-color: #0b5ed7 !important; border-color: #0a58ca !important; color: white !important; }
+    </style>
+</head>
+<body id="page-top" class="bg-light">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+        <div class="container px-5">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-chart-line me-2"></i>Análisis Fractal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="entrar.html">Seleccionar Método</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-gradient text-center text-white pt-5 mt-5">
+        <div class="container px-5 py-5">
+            <h1 class="display-4 fw-bolder mb-3">Calculadora de Dimensión Fractal</h1>
+            <p class="lead fw-normal text-white-50 mb-0 max-w-lg mx-auto">Selecciona el método matemático que mejor se adapte a las características de tu imagen para comenzar el análisis.</p>
+        </div>
+    </header>
+
+    <section class="py-5 bg-light">
+        <div class="container px-5 my-2">
+            
+            <div class="d-flex justify-content-end mb-4">
+                <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" data-bs-toggle="modal" data-bs-target="#guiaMetodosModal">
+                    <i class="fas fa-lightbulb text-warning me-2"></i>¿Qué método elegir?
+                </button>
+            </div>
+
+            <div class="row gx-5 justify-content-center">
+
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow-sm border-0 card-hover">
+                        <div class="card-body p-5 text-center d-flex flex-column">
+                            <div class="mb-3">
+                                <span class="badge bg-blue rounded-pill px-3 py-2">Clásico</span>
+                            </div>
+                            <div class="feature-icon icon-blue mx-auto">
+                                <i class="fas fa-border-all fa-2x"></i>
+                            </div>
+                            <h2 class="card-title h4 fw-bold mb-3">Box Counting</h2>
+                            <p class="card-text text-muted mb-4 flex-grow-1">El método estándar. Superpone una cuadrícula sobre la imagen y cuenta las "cajas" que tocan el objeto. Es ideal para formas bien definidas e imágenes en blanco y negro.</p>
+                            <a class="btn btn-blue rounded-pill w-100 stretched-link" href="Box-Counting.html">Seleccionar Método</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow-sm border-0 card-hover">
+                        <div class="card-body p-5 text-center d-flex flex-column">
+                            <div class="mb-3">
+                                <span class="badge bg-success rounded-pill px-3 py-2">Texturas</span>
+                            </div>
+                            <div class="feature-icon icon-green mx-auto">
+                                <i class="fas fa-cubes fa-2x"></i>
+                            </div>
+                            <h2 class="card-title h4 fw-bold mb-3">Box Counting Fraccionario</h2>
+                            <p class="card-text text-muted mb-4 flex-grow-1">Una variación optimizada para imágenes en escala de grises. Trata la imagen como un paisaje 3D donde la intensidad de cada píxel es una "altura". Excelente para analizar texturas.</p>
+                            <a class="btn btn-success rounded-pill w-100 stretched-link" href="Box-Counting-Fraccionario.html">Seleccionar Método</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-5">
+                    <div class="card h-100 shadow-sm border-0 card-hover">
+                        <div class="card-body p-5 text-center d-flex flex-column">
+                            <div class="mb-3">
+                                <span class="badge bg-danger rounded-pill px-3 py-2">Avanzado</span>
+                            </div>
+                            <div class="feature-icon icon-red mx-auto">
+                                <i class="fas fa-wave-square fa-2x"></i>
+                            </div>
+                            <h2 class="card-title h4 fw-bold mb-3">Análisis con Wavelets</h2>
+                            <p class="card-text text-muted mb-4 flex-grow-1">Utiliza la transformada de Wavelet para descomponer y analizar la imagen en diferentes frecuencias y escalas. Muy potente para texturas complejas y multifractales.</p>
+                            <a class="btn btn-danger rounded-pill w-100 stretched-link" href="Wavelets.html">Seleccionar Método</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="guiaMetodosModal" tabindex="-1" aria-labelledby="guiaMetodosModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-light border-bottom-0">
+                    <h5 class="modal-title fw-bold" id="guiaMetodosModalLabel"><i class="fas fa-question-circle text-primary me-2"></i>Guía rápida de selección</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-border-all fa-2x text-primary mb-2"></i>
+                                <h6 class="fw-bold">Box Counting Clásico</h6>
+                            </div>
+                            <p class="small text-muted mb-2"><strong>Úsalo para:</strong> Formas geométricas, siluetas marcadas, bordes y contornos claros.</p>
+                            <p class="small text-muted"><strong>Ejemplo de foto:</strong> Dibujos en blanco y negro, logotipos, hojas sobre fondo blanco.</p>
+                        </div>
+                        <div class="col-md-4 border-start border-end">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-cubes fa-2x text-success mb-2"></i>
+                                <h6 class="fw-bold">Fraccionario (DBC)</h6>
+                            </div>
+                            <p class="small text-muted mb-2"><strong>Úsalo para:</strong> Texturas físicas, relieves y fotografías donde las sombras y luces son importantes.</p>
+                            <p class="small text-muted"><strong>Ejemplo de foto:</strong> Cortezas de árboles, superficies de piedra, fotos satelitales.</p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center mb-3">
+                                <i class="fas fa-wave-square fa-2x text-danger mb-2"></i>
+                                <h6 class="fw-bold">Wavelets</h6>
+                            </div>
+                            <p class="small text-muted mb-2"><strong>Úsalo para:</strong> Patrones extremadamente finos y repetitivos a nivel casi microscópico.</p>
+                            <p class="small text-muted"><strong>Ejemplo de foto:</strong> Fractales matemáticos puros, huellas dactilares, tejidos celulares.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 justify-content-center">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Entendido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 bg-dark text-center">
+        <div class="container px-5"><p class="m-0 text-white-50 small">Copyright &copy; Mario Abrego 2026</p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
