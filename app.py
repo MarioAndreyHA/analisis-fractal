@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 from PIL import Image
@@ -10,9 +10,7 @@ import io
 import pywt
 from PIL import Image, ImageDraw, ImageFilter, ImageOps
 
-#-----------------------------------------------------------------------------
-
-# Flask
+# Flask: Ya no usamos static_folder aquí
 app = Flask(__name__)
 CORS(app) 
 
@@ -20,6 +18,18 @@ UPLOAD_FOLDER = 'uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+#-----------------------------------------------------------------------------
+
+@app.route('/')
+def home():
+    # Buscamos index.html en el directorio actual ('.')
+    return send_from_directory('.', 'index.html')
+
+@app.route('/<path:filename>')
+def serve_static(filename):
+    # Entregamos cualquier otro archivo (css, js, html, imágenes) de forma segura
+    return send_from_directory('.', filename)
 
 #-----------------------------------------------------------------------------
 
